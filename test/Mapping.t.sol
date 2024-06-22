@@ -11,7 +11,7 @@ contract MappingTest is Test {
         map = new Mapping();
     }
 
-    function test_Mapping() public {
+    function testMapping() public {
         map.set("abc", 10);
         console.log("Map get abc", map.get("abc"));
         assertEq(map.get("abc"), 9, "abc != 10");
