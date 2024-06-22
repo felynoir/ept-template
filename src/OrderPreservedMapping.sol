@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.13;
 
-library IterableMappingLibrary {
+library OrderPreservedMapping {
     struct Map {
         uint256 tmp;
     }
@@ -24,9 +24,9 @@ library IterableMappingLibrary {
     }
 }
 
-contract UseLibraryMapping {
-    using IterableMappingLibrary for IterableMappingLibrary.Map;
-    IterableMappingLibrary.Map map;
+contract UseOrderPreservedMapping {
+    using OrderPreservedMapping for OrderPreservedMapping.Map;
+    OrderPreservedMapping.Map map;
     function setValue(string memory key, uint256 value) public {
         map.set(key, value);
     }

@@ -2,13 +2,13 @@
 pragma solidity ^0.8.13;
 
 import {Test, console} from "forge-std/Test.sol";
-import {UseLibraryMapping} from "../src/IterableMappingLibrary.sol";
+import {UseOrderPreservedMapping} from "../src/OrderPreservedMapping.sol";
 
 contract MappingTest {
-    UseLibraryMapping a;
+    UseOrderPreservedMapping a;
 
     function setUp() public {
-        a = new UseLibraryMapping();
+        a = new UseOrderPreservedMapping();
     }
 
     function testTmpValue() public {
