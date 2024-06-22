@@ -2,17 +2,20 @@ pragma solidity ^0.8.13;
 
 import {Test, console} from "forge-std/Test.sol";
 import {IPalindromeChecker} from "../src/interfaces/IPalindromeChecker.sol";
+import {Palindrome} from "../src/Palindrome.sol";
 
 contract PalindromeTest is Test {
     IPalindromeChecker checker;
 
-    function setUp() public {}
+    function setUp() public {
+        checker = new Palindrome();
+    }
 
     function test_CheckSimplePalindrome() public {
         assert(checker.isPalindrome("aa"));
         assert(checker.isPalindrome("b"));
         assert(checker.isPalindrome(""));
-        assert(checker.isPalindrome("racerac"));
+        assert(checker.isPalindrome("racerac") == false);
         assert(checker.isPalindrome("hello") == false);
         assert(checker.isPalindrome("level"));
         assert(checker.isPalindrome("abcba"));
@@ -21,7 +24,7 @@ contract PalindromeTest is Test {
         assert(checker.isPalindrome("contest") == false);
     }
 
-    function test_CheckNotSimplePalidrome() public {
+    function test_CheckNotSimplePalindrome() public {
         assert(checker.isPalindrome("Aa"));
         assert(checker.isPalindrome("bA") == false);
         assert(checker.isPalindrome("madaMAdam"));
