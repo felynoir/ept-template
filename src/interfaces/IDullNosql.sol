@@ -14,8 +14,15 @@ interface IDullNoSql {
         uint value
     ) external returns (uint documentIndex);
 
+    /// returns value of that [key] in [index] document
+    function getDocumentValue(
+        string memory collectionName,
+        uint index,
+        string memory key
+    ) external view returns (uint value);
+
     /// If returns true [key] is being update (>= 1 document), if not there is no existing key
-    function updateDocuments(
+    function updateDocumentValues(
         string memory collectionName,
         string memory key,
         uint value
@@ -29,7 +36,7 @@ interface IDullNoSql {
     ) external returns (uint[] memory);
 
     /// If returns true [key] is being delete (>= 1 document), if not there is no existing key
-    function deleteDocuments(
+    function deleteDocumentKeys(
         string memory collectionName,
         string memory key
     ) external returns (bool deleted);
