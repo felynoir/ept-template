@@ -21,7 +21,25 @@ contract DullNosql is IDullNosql {
         string memory key,
         uint value
     ) external returns (uint documentIndex) {
-        // TODO: add logic here
+        Collection storage collection = collections[collectionName];
+        if (index == 0) {
+            // documents = [1,2,3, 4: [key: value]]
+            collection.documents.push();
+            uint size = collection.documents.length;
+
+            OrderPreservedMapping.Map storage doc = collection.documents[
+                size - 1
+            ];
+            doc.set(key, value);
+            return size;
+        } else {
+            assert(index <= collection.documents.length);
+            OrderPreservedMapping.Map storage doc = collection.documents[
+                index - 1
+            ];
+            doc.set(key, value);
+            return index;
+        }
     }
 
     function getDocumentValue(
