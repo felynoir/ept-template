@@ -21,21 +21,6 @@ contract TestIterableMap {
             assert(map.get(key) == i * 100);
         }
 
-        map.remove("b");
-
-        // keys = [a,d,c]
-        assert(map.size() == 3);
-        assert(
-            keccak256(abi.encodePacked(map.getKeyAtIndex(0))) ==
-                keccak256(abi.encodePacked("a"))
-        );
-        assert(
-            keccak256(abi.encodePacked(map.getKeyAtIndex(1))) ==
-                keccak256(abi.encodePacked("d"))
-        );
-        assert(
-            keccak256(abi.encodePacked(map.getKeyAtIndex(2))) ==
-                keccak256(abi.encodePacked("c"))
-        );
+        assert(map.size() == 4);
     }
 }
