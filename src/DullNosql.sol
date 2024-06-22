@@ -2,13 +2,13 @@
 pragma solidity ^0.8.13;
 
 import {IDullNoSql} from "./interfaces/IDullNoSql.sol";
-import {IterableMapping} from "./libraries/IterableMapping.sol";
+import {OrderPreservedMapping} from "./OrderPreservedMapping.sol";
 
 contract DullNoSql is IDullNoSql {
-    using IterableMapping for IterableMapping.Map;
+    using OrderPreservedMapping for OrderPreservedMapping.Map;
 
     struct Collection {
-        IterableMapping.Map[] documents;
+        OrderPreservedMapping.Map[] documents;
     }
 
     // We can just use mapping(string => IterabledMapping.Map[]) too
