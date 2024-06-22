@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.13;
 
-interface IDullNoSql {
+interface IDullNosql {
     error NoDocumentExist();
 
     /// if index is 0 it mean create new document, if not it will add/update value for that key

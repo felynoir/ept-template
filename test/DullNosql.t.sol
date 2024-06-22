@@ -2,13 +2,13 @@
 pragma solidity ^0.8.13;
 
 import {Test, console} from "forge-std/Test.sol";
-import {DullNoSql} from "../src/DullNoSql.sol";
+import {DullNosql} from "../src/DullNosql.sol";
 
-contract DullNoSqlTest is Test {
-    DullNoSql nosql;
+contract DullNosqlTest is Test {
+    DullNosql nosql;
 
     function setUp() public {
-        nosql = new DullNoSql();
+        nosql = new DullNosql();
     }
 
     function test_AddDocument() public {

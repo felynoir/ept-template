@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.13;
 
-import {IDullNoSql} from "./interfaces/IDullNoSql.sol";
+import {IDullNosql} from "./interfaces/IDullNosql.sol";
 import {OrderPreservedMapping} from "./OrderPreservedMapping.sol";
 
-contract DullNoSql is IDullNoSql {
+contract DullNosql is IDullNosql {
     using OrderPreservedMapping for OrderPreservedMapping.Map;
 
     struct Collection {
