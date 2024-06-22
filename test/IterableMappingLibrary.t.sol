@@ -2,13 +2,17 @@
 pragma solidity ^0.8.13;
 
 import {Test, console} from "forge-std/Test.sol";
-import {Mapping} from "../src/Mapping.sol";
+import {UseLibraryMapping} from "../src/IterableMappingLibrary.sol";
 
 contract MappingTest {
-    Mapping map;
+    UseLibraryMapping a;
+
     function setUp() public {
-        map = new Mapping();
+        a = new UseLibraryMapping();
     }
 
-    function testIterableMappingLibrary() public {}
+    function testTmpValue() public {
+        a.setValue("", 10);
+        assert(a.getValue("") == 10);
+    }
 }

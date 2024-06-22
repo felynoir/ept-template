@@ -3,36 +3,35 @@ pragma solidity ^0.8.13;
 
 library IterableMappingLibrary {
     struct Map {
-        uint8 tmp;
+        uint256 tmp;
     }
 
     function get(
         Map storage map,
         string memory key
     ) public view returns (uint256) {
-        // implementation
+        return map.tmp;
     }
 
-    function listValues(Map memory map) public view returns (uint256[] memory) {
-        // implementation
+    function listValues(Map memory map) public pure returns (uint256[] memory) {
+        uint256[] memory values = new uint256[](1);
+        values[0] = map.tmp;
+        return values;
     }
 
     function set(Map storage map, string memory key, uint256 val) public {
-        // implementation
-    }
-}
-
-contract UseMapping {
-    IterableMappingLibrary.Map map;
-
-    function getValue(string memory key) public view returns (uint256) {
-        return get(map, key);
+        map.tmp = val;
     }
 }
 
 contract UseLibraryMapping {
-    // using IterableMappingLibrary for IterableMappingLibrary.Map;
-    IterableMappingLibrary.Map;
+    using IterableMappingLibrary for IterableMappingLibrary.Map;
+    IterableMappingLibrary.Map map;
+    function setValue(string memory key, uint256 value) public {
+        map.set(key, value);
+    }
 
-    function getValue(string memory key) public view returns (uint256) {}
+    function getValue(string memory key) public view returns (uint256) {
+        return map.get(key);
+    }
 }
